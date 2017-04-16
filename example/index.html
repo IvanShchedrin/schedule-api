@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Schedule - example of usage API</title>
+    <style>
+        body {
+            font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+        }
+        body * {
+            font-weight: 200;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        h3 {
+            margin: 20px auto 0;
+        }
+        input, select {
+            min-width: 100px;
+            margin: 5px 20px 5px 0;
+        }
+        label {
+            white-space: nowrap;
+        }
+        label:after {
+            content: ' - ';
+        }
+        form {
+            padding: 10px 20px;
+            border: 5px solid #bfbfbf;
+        }
+        .scheduleWrapper {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .5);
+        }
+        .schedule {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: 10vw;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+        }
+        .closeButton {
+            position: absolute;
+            top: 10vw;
+            right: 10vw;
+            z-index: 2;
+            font-size: 17px;
+        }
+    </style>
+<body>
+<div id="root"></div>
+<script src="/example.js"></script>
+</body>
+</html>
