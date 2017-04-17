@@ -53,6 +53,8 @@ export default class Container extends Component {
           {...this.state}
           getEventsBySchoolAndDates={scheduleApi.getEventsBySchoolAndDates}
           getEventsByRoomAndDates={scheduleApi.getEventsByRoomAndDates}
+          importData={scheduleApi.importData}
+          exportData={scheduleApi.exportData}
         />
       </div>
     );

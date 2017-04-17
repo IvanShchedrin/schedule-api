@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import { findById } from '../../src/utils';
+import data from '../data';
 
 export default class ScheduleViewer extends PureComponent {
   constructor(props) {
@@ -9,6 +10,7 @@ export default class ScheduleViewer extends PureComponent {
     this.state = {
       events: [],
       isShown: false,
+      loadValue: JSON.stringify(data),
     }
   }
 
@@ -27,9 +29,25 @@ export default class ScheduleViewer extends PureComponent {
 
   handleClose = () => this.setState({ isShown: false });
 
+  handleLoadChange = event => this.setState({ loadValue: event.target.value });
+
+  handleImportClick = (event) => {
+    event.preventDefault();
+
+    this.props.importData(this.state.loadValue)
+      .then(() => alert('Success!'))
+      .catch(error => alert(`Error: ${error}`));
+  };
+
+  handleExportClick = (event) => {
+    event.preventDefault();
+
+    this.setState({ loadValue: this.props.exportData() });
+  };
+
   render() {
     const { rooms, schools } = this.props;
-    const { events, isShown } = this.state;
+    const { events, isShown, loadValue } = this.state;
     let scheduleItems = [];
 
     if (isShown) {
@@ -77,6 +95,13 @@ export default class ScheduleViewer extends PureComponent {
           <label>date start (yyyy-mm-dd hh:mm)</label><input type="text" name="dateStart" />
           <label>date end (yyyy-mm-dd hh:mm)</label><input type="text" name="dateEnd" />
           <button>Show schedule</button>
+        </form>
+
+        <h2>Import/export JSON model</h2>
+        <form>
+          <textarea className="loadTextarea" name="payload"rows="4" value={loadValue} onChange={this.handleLoadChange} />
+          <button onClick={this.handleImportClick}>Import data</button>
+          <button onClick={this.handleExportClick}>Export data</button>
         </form>
 
         <div className="scheduleWrapper" style={{ display: isShown ? 'block' : 'none' }}>

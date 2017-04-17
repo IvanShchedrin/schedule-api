@@ -14,8 +14,7 @@ export default function(payload) {
   try {
     data = JSON.parse(payload);
   } catch(error) {
-    console.log('cant parse provided string to JSON');
-    return;
+    return Promise.reject('cant parse provided string to JSON');
   }
 
   return createState(data)
