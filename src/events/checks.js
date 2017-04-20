@@ -1,8 +1,6 @@
 import { isDateValid, findById, isArray, dateRangesOverlap } from '../utils';
 
 export function newEvent(state, payload) {
-  if (!payload) return ['empty event data'];
-
   const reasons = [];
   const { name, lecturer, dateStart, dateEnd, schools, room } = payload;
   let foundRoom;
@@ -90,8 +88,6 @@ export function newEvent(state, payload) {
 
 
 export function updateEvent(state, payload) {
-  if (!payload) return ['empty event data'];
-
   const eventIndex = state.events.findIndex(event => event.id === payload.id);
   if (eventIndex === -1) {
     return ['invalid id'];
@@ -113,8 +109,6 @@ export function updateEvent(state, payload) {
 
 
 export function removeEvent(state, payload) {
-  if (!payload) return ['empty event data'];
-
   const reasons = [];
   const { id } = payload;
   const foundEvent = findById(state.events, id);

@@ -1,5 +1,6 @@
 import { dateRangesOverlap, isDateValid } from './utils';
 
+// Фильтр событий по школе и датам
 export function getEventsBySchoolAndDates(state, params) {
   const { schoolId, dateStart, dateEnd } = params;
 
@@ -14,6 +15,7 @@ export function getEventsBySchoolAndDates(state, params) {
     });
 }
 
+// Фильтр событий по комнате и датам
 export function getEventsByRoomAndDates(state, params) {
   const { roomId, dateStart, dateEnd } = params;
 

@@ -1,8 +1,6 @@
 import { findById } from '../utils';
 
 export function newSchool(state, payload) {
-  if (!payload) return ['empty school data'];
-
   const { name, amount } = payload;
   const reasons = [];
 

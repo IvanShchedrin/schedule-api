@@ -1,1 +1,2 @@
-export default from './src/index';
+import ScheduleAPI from './src/index';
+export default ScheduleAPI;

@@ -4,7 +4,7 @@ module.exports = {
   entry: './example/index.jsx',
   output: {
     filename: 'example.js',
-    path: path.resolve(__dirname, 'example/build'),
+    path: path.resolve(__dirname, './build/'),
   },
   module: {
     rules: [

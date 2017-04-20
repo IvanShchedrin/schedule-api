@@ -1,6 +1,7 @@
 import uuid from 'uuid/v1';
 import { ADD_ROOM, UPDATE_ROOM, REMOVE_ROOM, IMPORT_ROOMS } from './actions';
 
+// Самые обыные редьюсеры. Подробно здесь goo.gl/BSqtEm
 export default function(state = [], action) {
   switch (action.type) {
     case ADD_ROOM:

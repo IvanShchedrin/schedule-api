@@ -8,6 +8,7 @@ import { importSchools } from './schools/actions';
 import { importRooms } from './rooms/actions';
 import { importEvents } from './events/actions';
 
+// Функция импорта данных из JSON.
 export default function(payload) {
   let data;
 
@@ -25,6 +26,7 @@ export default function(payload) {
     });
 }
 
+// Функция создания стейта из JSON. Если проверки пройдеты, возвращает resolved-промис с коллекцией
 function createState(payload) {
   const { events, schools, rooms } = payload;
   const state = { events: [], schools: [], rooms: [] };

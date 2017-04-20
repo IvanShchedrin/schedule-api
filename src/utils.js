@@ -6,7 +6,7 @@ export function loadState() {
     }
     return JSON.parse(serializedState);
   } catch (err) {
-    console.log('localStorage does not supports');
+    // localStorage does not supports
     return undefined;
   }
 }
@@ -64,7 +64,7 @@ const mustHaveFields = {
   events: ['name', 'lecturer', 'dateStart', 'dateEnd', 'schools', 'room', 'id'],
 };
 
-export function clearFields(key, data) {
+export function clearFields(key, data = {}) {
   const result = {};
   const fields = mustHaveFields[key];
 
