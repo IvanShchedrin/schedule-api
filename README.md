@@ -45,5 +45,5 @@ $ npm run example
 
 ### Сборка и деплой примера на gh-pages:
 $ npm run example:build  
-$ gh:publish  
+$ npm run gh:publish  
 -> https://oktava6.github.io/schedule-api/
