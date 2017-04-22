@@ -79,8 +79,8 @@ export default class ScheduleViewer extends PureComponent {
               <option value={school.id} key={key}>{school.name}</option>
             )) }
           </select>
-          <label>date start (yyyy-mm-dd hh:mm)</label><input type="text" name="dateStart" />
-          <label>date end (yyyy-mm-dd hh:mm)</label><input type="text" name="dateEnd" />
+          <label>date start</label><input type="text" name="dateStart" placeholder="yyyy-mm-dd hh:mm" />
+          <label>date end</label><input type="text" name="dateEnd" placeholder="yyyy-mm-dd hh:mm" /><br />
           <button>Show schedule</button>
         </form>
 
@@ -92,16 +92,16 @@ export default class ScheduleViewer extends PureComponent {
               <option value={room.id} key={key}>{room.name}</option>
             )) }
           </select>
-          <label>date start (yyyy-mm-dd hh:mm)</label><input type="text" name="dateStart" />
-          <label>date end (yyyy-mm-dd hh:mm)</label><input type="text" name="dateEnd" />
+          <label>date start</label><input type="text" name="dateStart" placeholder="yyyy-mm-dd hh:mm" />
+          <label>date end</label><input type="text" name="dateEnd" placeholder="yyyy-mm-dd hh:mm" /><br />
           <button>Show schedule</button>
         </form>
 
         <h2>Import/export JSON model</h2>
         <form>
-          <textarea className="loadTextarea" name="payload"rows="4" value={loadValue} onChange={this.handleLoadChange} />
-          <button onClick={this.handleImportClick}>Import data</button>
-          <button onClick={this.handleExportClick}>Export data</button>
+          <textarea className="loadTextarea" name="payload"rows="4" value={loadValue} onChange={this.handleLoadChange} /><br />
+          <button onClick={this.handleImportClick}>Import data from textarea</button>
+          <button onClick={this.handleExportClick}>Export data to textarea</button>
         </form>
 
         <div className="scheduleWrapper" style={{ display: isShown ? 'block' : 'none' }}>

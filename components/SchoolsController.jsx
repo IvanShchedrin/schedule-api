@@ -65,7 +65,7 @@ export default class SchoolsController extends PureComponent {
         <h3>Add new school</h3>
         <form onSubmit={this.handleSchoolAdd}>
           <label>name</label><input type="text" name="name" />
-          <label>amount</label><input type="number" name="amount" />
+          <label>amount</label><input type="number" name="amount" /><br />
           <button>Add new school</button>
           <Error errors={this.state.errors.add || []} />
           { successType === 'add' ? <Success /> : null }
@@ -78,9 +78,9 @@ export default class SchoolsController extends PureComponent {
             { schools.map((school, key) => (
               <option value={school.id} key={key}>{school.name}</option>
             )) }
-          </select><br />
+          </select>
           <label> new name</label><input type="text" name="name" />
-          <label>new amount</label><input type="number" name="amount" />
+          <label>new amount</label><input type="number" name="amount" /><br />
           <button>Update school</button>
           <Error errors={this.state.errors.update || []} />
           { successType === 'update' ? <Success /> : null }
@@ -93,7 +93,7 @@ export default class SchoolsController extends PureComponent {
             { schools.map((school, key) => (
               <option value={school.id} key={key}>{school.name}</option>
             )) }
-          </select>
+          </select><br />
           <button>Remove school</button>
           <Error errors={this.state.errors.remove || []} />
           { successType === 'remove' ? <Success /> : null }

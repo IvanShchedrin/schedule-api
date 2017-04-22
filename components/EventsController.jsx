@@ -76,14 +76,14 @@ export default class EventsController extends PureComponent {
         <form onSubmit={this.handleEventAdd}>
           <label>name</label><input type="text" name="name" />
           <label>lecturer</label><input type="text" name="lecturer" />
-          <label>date start (yyyy-mm-dd hh:mm)</label><input type="text" name="dateStart" />
-          <label>date end (yyyy-mm-dd hh:mm)</label><input type="text" name="dateEnd" />
+          <label>date start</label><input type="text" name="dateStart" placeholder="yyyy-mm-dd hh:mm" />
+          <label>date end</label><input type="text" name="dateEnd" placeholder="yyyy-mm-dd hh:mm" />
           <label>room</label>
           <select name="room">
             { rooms.map((room, key) => (
               <option value={room.id} key={key}>{room.name}</option>
             )) }
-          </select><br />
+          </select>
           <label>schools</label>
           <select name="schools" multiple>
             { schools.map((school, key) => (
@@ -105,14 +105,14 @@ export default class EventsController extends PureComponent {
           </select><br />
           <label>name</label><input type="text" name="name" />
           <label>lecturer</label><input type="text" name="lecturer" />
-          <label>date start (yyyy-mm-dd hh:mm)</label><input type="text" name="dateStart" />
-          <label>date end (yyyy-mm-dd hh:mm)</label><input type="text" name="dateEnd" />
+          <label>date start</label><input type="text" name="dateStart" placeholder="yyyy-mm-dd hh:mm" />
+          <label>date end</label><input type="text" name="dateEnd" placeholder="yyyy-mm-dd hh:mm" />
           <label>room</label>
           <select name="room">
             { rooms.map((room, key) => (
               <option value={room.id} key={key}>{room.name}</option>
             )) }
-          </select><br />
+          </select>
           <label>schools</label>
           <select name="schools" multiple>
             { schools.map((school, key) => (
@@ -131,7 +131,7 @@ export default class EventsController extends PureComponent {
             { events.map((event, key) => (
               <option value={event.id} key={key}>{event.name}</option>
             )) }
-          </select>
+          </select><br />
           <button>Remove event</button>
           <Error errors={this.state.errors.remove || []} />
           { successType === 'remove' ? <Success /> : null }
