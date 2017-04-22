@@ -1,8 +1,8 @@
-import { isArray, clearFields } from './utils';
+import { isArray, clearFields, formatDateString } from './utils';
 
-import { newRoom } from './rooms/checks';
-import { newSchool } from './schools/checks';
-import { newEvent } from './events/checks';
+import { newRoom as checkNewRoom } from './rooms/checks';
+import { newSchool as checkNewSchool } from './schools/checks';
+import { newEvent as checkNewEvent } from './events/checks';
 
 import { importSchools } from './schools/actions';
 import { importRooms } from './rooms/actions';
@@ -38,42 +38,42 @@ function createState(payload) {
 
   badIndex = rooms.findIndex((room) => {
     const clearedRoom = clearFields('rooms', room || {});
-    if (newRoom(state, clearedRoom) === false) {
+
+    if (checkNewRoom(state, clearedRoom) === false) {
       state.rooms.push(clearedRoom);
     } else {
       return true;
     }
   });
 
-  if (badIndex !== -1) {
-    return Promise.reject('invalid room provided');
-  }
+  if (badIndex !== -1) return Promise.reject('invalid room provided');
 
   badIndex = schools.findIndex((school) => {
     const clearedSchool = clearFields('schools', school || {});
-    if (newSchool(state, clearedSchool) === false) {
+
+    if (checkNewSchool(state, clearedSchool) === false) {
       state.schools.push(clearedSchool);
     } else {
       return true;
     }
   });
 
-  if (badIndex !== -1) {
-    return Promise.reject('invalid school provided');
-  }
+  if (badIndex !== -1) return Promise.reject('invalid school provided');
 
   badIndex = events.findIndex((event) => {
     const clearedEvent = clearFields('events', event || {});
-    if (newEvent(state, clearedEvent) === false) {
+
+    clearedEvent.dateStart = formatDateString(clearedEvent.dateStart);
+    clearedEvent.dateEnd = formatDateString(clearedEvent.dateEnd);
+
+    if (checkNewEvent(state, clearedEvent) === false) {
       state.events.push(clearedEvent);
     } else {
       return true;
     }
   });
 
-  if (badIndex !== -1) {
-    return Promise.reject('invalid event provided');
-  }
+  if (badIndex !== -1) return Promise.reject('invalid event provided');
 
   return Promise.resolve(state);
 }

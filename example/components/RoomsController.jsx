@@ -65,7 +65,7 @@ export default class RoomsController extends PureComponent {
         <form onSubmit={this.handleRoomAdd}>
           <label>name</label><input type="text" name="name" />
           <label>seats</label><input type="number" name="seats" />
-          <label>location</label><input type="text" name="location" />
+          <label>location</label><input type="text" name="location" /><br />
           <button>Add new room</button>
           <Error errors={this.state.errors.add || []} />
           { successType === 'add' ? <Success /> : null }
@@ -78,10 +78,10 @@ export default class RoomsController extends PureComponent {
             { rooms.map((room, key) => (
               <option value={room.id} key={key}>{room.name}</option>
             )) }
-          </select><br />
+          </select>
           <label>new name</label><input type="text" name="name" />
           <label>new number of seats</label><input type="number" name="seats" />
-          <label>new location</label><input type="text" name="location" />
+          <label>new location</label><input type="text" name="location" /><br />
           <button>Update room</button>
           <Error errors={this.state.errors.update || []} />
           { successType === 'update' ? <Success /> : null }
@@ -94,7 +94,7 @@ export default class RoomsController extends PureComponent {
             { rooms.map((room, key) => (
               <option value={room.id} key={key}>{room.name}</option>
             )) }
-          </select>
+          </select><br />
           <button>Remove room</button>
           <Error errors={this.state.errors.remove || []} />
           { successType === 'remove' ? <Success /> : null }

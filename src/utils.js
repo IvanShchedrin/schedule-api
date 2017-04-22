@@ -58,6 +58,13 @@ export function dateRangesOverlap(dateStart1, dateEnd1, dateStart2, dateEnd2) {
   return (start1 <= start2 && end1 > start2) || (start2 < start1 && end2 > start1);
 }
 
+export function formatDateString(string) {
+  if (typeof string === 'string') {
+    return string.replace(' ', 'T');
+  }
+  return string;
+}
+
 const mustHaveFields = {
   rooms: ['name', 'seats', 'location', 'id'],
   schools: ['name', 'amount', 'location', 'id'],

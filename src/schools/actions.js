@@ -1,5 +1,5 @@
 import * as check from './checks';
-import { clearFields } from '../utils';
+import { clearFields, formatDateString } from '../utils';
 import { REMOVE_SCHOOL_FROM_EVENTS } from '../events/actions';
 
 export const ADD_SCHOOL = 'add new school';
@@ -10,6 +10,10 @@ export const IMPORT_SCHOOLS = 'import schools';
 export function addSchool(payload) {
   return (dispatch, getState) => {
     const clearedData = clearFields('schools', payload);
+
+    clearedData.dateStart = formatDateString(clearedData.dateStart);
+    clearedData.dateEnd = formatDateString(clearedData.dateEnd);
+
     const errors = check.newSchool(getState(), clearedData);
 
     return dispatch(errors ?
@@ -21,6 +25,10 @@ export function addSchool(payload) {
 export function updateSchool(payload) {
   return (dispatch, getState) => {
     const clearedData = clearFields('schools', payload);
+
+    clearedData.dateStart = formatDateString(clearedData.dateStart);
+    clearedData.dateEnd = formatDateString(clearedData.dateEnd);
+
     const errors = check.updateSchool(getState(), clearedData);
 
     return dispatch(errors ?
