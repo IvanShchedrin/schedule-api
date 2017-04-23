@@ -62,7 +62,7 @@ export default class RoomsController extends PureComponent {
       <div>
         <h2>Rooms controller</h2>
         <h3>Add new room</h3>
-        <form onSubmit={this.handleRoomAdd}>
+        <form className="addForm" onSubmit={this.handleRoomAdd}>
           <label>name</label><input type="text" name="name" />
           <label>seats</label><input type="number" name="seats" />
           <label>location</label><input type="text" name="location" /><br />
@@ -72,7 +72,7 @@ export default class RoomsController extends PureComponent {
         </form>
 
         <h3>Update existing room</h3>
-        <form onSubmit={this.handleRoomUpdate}>
+        <form className="updateForm" onSubmit={this.handleRoomUpdate}>
           <label>choose room</label>
           <select name="id">
             { rooms.map((room, key) => (
@@ -88,7 +88,7 @@ export default class RoomsController extends PureComponent {
         </form>
 
         <h3>Remove existing room</h3>
-        <form onSubmit={this.handleRoomRemove}>
+        <form className="removeForm" onSubmit={this.handleRoomRemove}>
           <label>room</label>
           <select name="id">
             { rooms.map((room, key) => (
