@@ -22,15 +22,17 @@ const scheduleApi = combineReducers({
 // Для включения возможности чтения/записи в локалстор браузера прокидываем параметры со свойством localStorage: true
 // Отключение этой возможности позволяет использовать библиотеку без браузера (например в node-сервере)
 export default class Schedule {
-  constructor(params = {}) {
+  constructor(params = { localStorage: false, storeAlias: 'state' }) {
+    const { localStorage, storeAlias } = params;
+
     this._store = createStore(
       scheduleApi,
-      params.localStorage ? loadState() : undefined,
+      localStorage ? loadState(storeAlias) : undefined,
       applyMiddleware(thunk),
     );
 
     if (params.localStorage) {
-      this._store.subscribe(() => saveState(this._store.getState()));
+      this._store.subscribe(() => saveState(this._store.getState(), storeAlias));
     }
   }
 

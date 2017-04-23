@@ -7,7 +7,7 @@ import ScheduleAPI from '../index';
 
 // Инициализируем. Полученный экземпляр классы ScheduleAPI имеет все необходимые методы для работы
 // с коллекцией. Параметр localStorage включает/выключает работу с локалстором браузера
-const scheduleApi = new ScheduleAPI({ localStorage: true });
+const scheduleApi = new ScheduleAPI({ localStorage: true, storeAlias: 'schedule' });
 // Сохраняю в глобальную пепеменную чтобы можно была поиграть с библиотекой из консоли
 window.scheduleApi = scheduleApi;
 

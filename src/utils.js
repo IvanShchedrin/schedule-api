@@ -1,6 +1,6 @@
-export function loadState() {
+export function loadState(storeAlias = 'state') {
   try {
-    const serializedState = localStorage.getItem('state');
+    const serializedState = localStorage.getItem(storeAlias);
     if (serializedState === null) {
       return undefined;
     }
@@ -11,12 +11,12 @@ export function loadState() {
   }
 }
 
-export function saveState(state) {
+export function saveState(state, storeAlias) {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem('state', serializedState);
+    localStorage.setItem(storeAlias, serializedState);
   } catch (err) {
-    // localstorage does not supports
+    // localStorage does not supports
   }
 }
 
