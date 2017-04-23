@@ -73,7 +73,7 @@ export default class EventsController extends PureComponent {
       <div>
         <h2>Events controller</h2>
         <h3>Add new event</h3>
-        <form onSubmit={this.handleEventAdd}>
+        <form className="addForm" onSubmit={this.handleEventAdd}>
           <label>name</label><input type="text" name="name" />
           <label>lecturer</label><input type="text" name="lecturer" />
           <label>date start</label><input type="text" name="dateStart" placeholder="yyyy-mm-dd hh:mm" />
@@ -96,7 +96,7 @@ export default class EventsController extends PureComponent {
         </form>
 
         <h3>Update existing event</h3>
-        <form onSubmit={this.handleEventUpdate}>
+        <form className="updateForm" onSubmit={this.handleEventUpdate}>
           <label>choose event</label>
           <select name="id">
             { events.map((event, key) => (
@@ -125,7 +125,7 @@ export default class EventsController extends PureComponent {
         </form>
 
         <h3>Remove existing event</h3>
-        <form onSubmit={this.handleEventRemove}>
+        <form className="removeForm" onSubmit={this.handleEventRemove}>
           <label>choose event</label>
           <select name="id">
             { events.map((event, key) => (

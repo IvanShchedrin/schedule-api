@@ -20,9 +20,9 @@ export default function(payload) {
 
   return createState(data)
     .then((payload) => {
-      this.store.dispatch(importSchools(payload.schools));
-      this.store.dispatch(importRooms(payload.rooms));
-      this.store.dispatch(importEvents(payload.events));
+      this._store.dispatch(importSchools(payload.schools));
+      this._store.dispatch(importRooms(payload.rooms));
+      this._store.dispatch(importEvents(payload.events));
     });
 }
 

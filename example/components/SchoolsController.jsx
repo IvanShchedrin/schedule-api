@@ -63,7 +63,7 @@ export default class SchoolsController extends PureComponent {
       <div>
         <h2>Schools controller</h2>
         <h3>Add new school</h3>
-        <form onSubmit={this.handleSchoolAdd}>
+        <form className="addForm" onSubmit={this.handleSchoolAdd}>
           <label>name</label><input type="text" name="name" />
           <label>amount</label><input type="number" name="amount" /><br />
           <button>Add new school</button>
@@ -72,7 +72,7 @@ export default class SchoolsController extends PureComponent {
         </form>
 
         <h3>Update existing school</h3>
-        <form onSubmit={this.handleSchoolUpdate}>
+        <form className="updateForm" onSubmit={this.handleSchoolUpdate}>
           <label>choose school</label>
           <select name="id">
             { schools.map((school, key) => (
@@ -87,7 +87,7 @@ export default class SchoolsController extends PureComponent {
         </form>
 
         <h3>Remove existing school</h3>
-        <form onSubmit={this.handleSchoolRemove}>
+        <form className="removeForm" onSubmit={this.handleSchoolRemove}>
           <label>school</label>
           <select name="id">
             { schools.map((school, key) => (
